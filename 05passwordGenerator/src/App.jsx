@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 function App() {
 
@@ -27,6 +27,8 @@ function App() {
 		length, numberAllowed, charAllowed, setPassword
 	])
 
+	useEffect(() => {passwordGenerator()}, [length, numberAllowed, charAllowed, passwordGenerator])
+
 	return (
 		<>
 			<div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
@@ -43,7 +45,43 @@ function App() {
 					className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'
 					>copy</button>
 				</div>
+				<div className='flex text-sm gap-x-2'>
+					<div className='flex items-center gap-x-1'>
+						<input 
+						type="range"
+						min={8}
+						max={32}
+						value={length}
+						className='cursor-pointer'
+						onChange={(e) => {setLength(e.target.value)}}
+						/>
+						<label>Length: {length}</label>
+					</div>
+					<div className="flex items-center gap-x-1">
+						<input
+							type="checkbox"
+							defaultChecked={numberAllowed}
+							id="numberInput"
+							onChange={() => {
+								setNumberAllowed((prev) => !prev);
+							}}
+						/>
+						<label htmlFor="numberInput">Numbers</label>
+					</div>
+					<div className="flex items-center gap-x-1">
+						<input
+							type="checkbox"
+							defaultChecked={numberAllowed}
+							id="charInput"
+							onChange={() => {
+								setCharAllowed((prev) => !prev);
+							}}
+						/>
+						<label htmlFor="numberInput">Characters</label>
+					</div>
+				</div>
 			</div>
+			
 		</>
 	)
 }
