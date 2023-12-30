@@ -35,7 +35,7 @@ function App() {
 		passwordRef.current?.setSelectionRange(0, 32)
 		window.navigator.clipboard.writeText(password)
 	},
-	[password])
+		[password])
 
 	useEffect(() => { passwordGenerator() }, [length, numberAllowed, charAllowed, passwordGenerator])
 
