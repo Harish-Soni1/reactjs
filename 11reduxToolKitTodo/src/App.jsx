@@ -8,7 +8,7 @@ function App() {
 
   return (
     <Provider store={store}>
-      <h1>Todos</h1>
+      <h1 className='text-3xl'>My Todos</h1>
       < AddTodo />
       < Todos />
     </Provider>
