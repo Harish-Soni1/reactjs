@@ -1,6 +1,5 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { logOut } from '../../store/authSlice'
 import { Link, useNavigate } from 'react-router-dom'
 import { Container, Logo, LogoutBtn } from "../index"
 
@@ -28,12 +27,12 @@ function Header() {
 		},
 		{
 			name: "All Posts",
-			slug: "/post/all",
+			slug: "/all-posts",
 			active: authStatus
 		},
 		{
 			name: "Add Post",
-			slug: "/post/add",
+			slug: "/add-post",
 			active: authStatus
 		}
 	]

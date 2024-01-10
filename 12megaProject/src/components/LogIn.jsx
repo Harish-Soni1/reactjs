@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form"
 import { useDispatch } from 'react-redux'
-import authService from '../appWrite/auth'
+import authService from '../appwrite/auth'
 import { Button, Input, Logo } from "./index"
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { logIn as authLogin } from '../store/authSlice'
 
 function LogIn() {
 
-    const navigate = useNavigate()
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
     const [error, setError] = useState("")
@@ -47,7 +46,7 @@ function LogIn() {
                     </Link>
                 </p>
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-                <form onSubmit={handleSubmit(login)} className='mt-8'>
+                <form onSubmit={handleSubmit(logIn)} className='mt-8'>
                     <div className='space-y-5'>
                         <Input
                             label="Email: "
